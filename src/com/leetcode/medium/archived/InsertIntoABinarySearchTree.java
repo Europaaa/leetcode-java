@@ -58,19 +58,10 @@ public class InsertIntoABinarySearchTree {
         }
 
         if (val < root.val) {
-            if (root.left == null) {
-                root.left = new TreeNode(val);
-                return root;
-            }
-            insertIntoBSTV1(root.left, val);
+            root.left = insertIntoBSTV1(root.left, val);
             return root;
         }
-
-        if (root.right == null) {
-            root.right = new TreeNode(val);
-            return root;
-        }
-        insertIntoBSTV1(root.right, val);
+        root.right =  insertIntoBSTV1(root.right, val);
         return root;
     }
 }

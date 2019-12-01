@@ -16,11 +16,32 @@ public class MergeTwoSortedLists {
     }
 
     /**
-     * Solution:
+     * Solution: Recursive
+     * - Time: O(n)
+     * - Space: O(n)
+     */
+    public ListNode mergeTwoListsV2(ListNode head1, ListNode head2) {
+        if (head1 == null) {
+            return head2;
+        }
+        if (head2 == null) {
+            return head1;
+        }
+
+        if (head1.val < head2.val) {
+            head1.next = mergeTwoListsV2(head1.next, head2);
+            return head1;
+        }
+        head2.next = mergeTwoListsV2(head1, head2.next);
+        return head2;
+    }
+
+    /**
+     * Solution: Iterative
      * - Time: O(n)
      * - Space: O(1)
      */
-    public ListNode mergeTwoLists(ListNode head1, ListNode head2) {
+    public ListNode mergeTwoListsV1(ListNode head1, ListNode head2) {
         ListNode node1 = head1;
         ListNode node2 = head2;
 

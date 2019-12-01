@@ -19,7 +19,8 @@ public class MaximumDepthOfBinaryTree {
     /**
      * Solution:
      * - Time: O(n)
-     * - Space: O(1)
+     * - Space: O(h)
+     * where h is the height of the tree, O(n) in worst case
      */
     public int maxDepth(TreeNode root) {
         if (root == null) {
